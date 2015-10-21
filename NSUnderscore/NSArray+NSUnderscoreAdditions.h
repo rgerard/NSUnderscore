@@ -10,9 +10,39 @@
 
 @interface NSArray (NSUnderscoreAdditions)
 
-- (void)each:(void(^)(NSUInteger, id))action;
-- (NSArray *)map:(id(^)(NSUInteger, id))action;
-- (NSArray *)filter:(bool(^)(NSUInteger, id))action;
-- (id)reduce:(id(^)(NSUInteger, id, id))action;
+/* 
+ * Iterates over a list of elements, yielding each in turn to an action function.
+ */
+- (void)each:(void(^)(id))action;
+
+/*
+ * Produces a new array of values by mapping each value in list through a transformation function (action).
+ */
+- (NSArray *)map:(id(^)(id))action;
+
+/* 
+ * Reduce boils down a list of values into a single value. Each successive step of it should be returned by action.
+ */
+- (id)reduce:(id(^)(id, id))action;
+
+/*
+ * Looks through each value in the list, returning an array of all the values that pass a truth test
+ */
+- (NSArray *)filter:(bool(^)(id))action;
+
+/*
+ * Returns true if all of the values in the list pass the predicate truth test.
+ */
+- (BOOL)every:(BOOL(^)(id))action;
+
+/*
+ * Returns true if any of the values in the list pass the predicate truth test. Short-circuits and stops traversing the list if a true element is found.
+ */
+- (BOOL)some:(BOOL(^)(id))action;
+
+/*
+ * A convenient version of what is perhaps the most common use-case for map: extracting a list of property values.
+ */
+- (NSArray *)pluck:(NSString *)propertyName;
 
 @end

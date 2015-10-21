@@ -27,38 +27,61 @@
 }
 
 - (void)testEach {
-    NSArray *test = @[@(2)];
-    __block NSInteger count = 0;
-    [test each:^(NSUInteger index, NSNumber *object) {
-        count++;
+    NSArray *test = @[@(2), @(8)];
+    __block NSInteger total = 0;
+    [test each:^(NSNumber *object) {
+        total += object.integerValue;
     }];
-    XCTAssert(count == 1);
+    XCTAssert(total == 10);
 }
 
 - (void)testMap {
     NSArray *test = @[@(2)];
-    NSArray *modified = [test map:(id)^(NSUInteger index, NSNumber *object) {
+    NSArray *modified = [test map:(id)^(NSNumber *object) {
         return @(object.integerValue * 2);
     }];
     NSNumber *modifiedValue = modified[0];
     XCTAssert(modifiedValue.integerValue == 4);
 }
 
+- (void)testReduce {
+    NSArray *test = @[@(2), @(4)];
+    NSNumber *reduced = [test reduce:(id)^(NSNumber *object, NSNumber *previousValue) {
+        return @(object.integerValue + previousValue.integerValue);
+    }];
+    XCTAssert(reduced.integerValue == 6);
+}
+
 - (void)testFilter {
     NSArray *test = @[@(2), @(4)];
-    NSArray *modified = [test filter:(id)^(NSUInteger index, NSNumber *object) {
+    NSArray *modified = [test filter:(id)^(NSNumber *object) {
         return object.integerValue == 2;
     }];
     NSNumber *modifiedValue = modified[0];
     XCTAssert(modifiedValue.integerValue == 2);
 }
 
-- (void)testReduce {
+- (void)testEvery {
     NSArray *test = @[@(2), @(4)];
-    NSNumber *reduced = [test reduce:(id)^(NSUInteger index, NSNumber *object, NSNumber *previousValue) {
-        return @(object.integerValue + previousValue.integerValue);
+    BOOL every = [test every:^BOOL(NSNumber *object) {
+        return object.integerValue > 0;
     }];
-    XCTAssert(reduced.integerValue == 6);
+    XCTAssert(every == YES);
+}
+
+- (void)testSome {
+    NSArray *test = @[@(2), @(4)];
+    BOOL some = [test some:^BOOL(NSNumber *object) {
+        return object.integerValue < 0;
+    }];
+    XCTAssert(some == NO);
+}
+
+- (void)testPluck {
+    NSArray *testStrings = @[@"TEST", @"ONE"];
+    NSArray *plucked = [testStrings pluck:@"lowercaseString"];
+    XCTAssert([plucked containsObject:@"test"]);
+    XCTAssert([plucked containsObject:@"one"]);
 }
 
 @end
