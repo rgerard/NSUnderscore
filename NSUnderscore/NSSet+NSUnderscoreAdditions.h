@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSArray (NSUnderscoreAdditions)
+@interface NSSet (NSUnderscoreAdditions)
 
-/* 
+/*
  * Iterates over a list of elements, yielding each in turn to an action function.
  */
 - (void)each:(void(^)(id))action;
@@ -20,7 +20,7 @@
  */
 - (NSArray *)map:(id(^)(id))action;
 
-/* 
+/*
  * Reduce boils down a list of values into a single value. Each successive step of it should be returned by action.
  */
 - (id)reduce:(id(^)(id, id))action;
@@ -85,7 +85,7 @@
 - (NSDictionary *)indexBy:(id(^)(id))action;
 
 /*
- * Sorts a list into groups and returns a count for the number of objects in each group. 
+ * Sorts a list into groups and returns a count for the number of objects in each group.
  * Similar to groupBy, but instead of returning a list of values, returns a count for the number of values in that group.
  * For example:
  *  NSArray *testObjects = @[@(1), @(2), @(3)];

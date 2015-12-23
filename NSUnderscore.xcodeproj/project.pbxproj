@@ -9,8 +9,14 @@
 /* Begin PBXBuildFile section */
 		940E99C11BD37C82002F2880 /* NSArray+NSUnderscoreAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 940E99C01BD37C82002F2880 /* NSArray+NSUnderscoreAdditions.h */; };
 		940E99C31BD37C82002F2880 /* NSArray+NSUnderscoreAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 940E99C21BD37C82002F2880 /* NSArray+NSUnderscoreAdditions.m */; };
-		940E99D01BD37CB3002F2880 /* NSUnderscoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 940E99CF1BD37CB3002F2880 /* NSUnderscoreTests.m */; };
-		940E99D21BD37CB3002F2880 /* libNSUnderscore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 940E99BD1BD37C82002F2880 /* libNSUnderscore.a */; settings = {ASSET_TAGS = (); }; };
+		940E99D01BD37CB3002F2880 /* NSUnderscoreArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 940E99CF1BD37CB3002F2880 /* NSUnderscoreArrayTests.m */; };
+		940E99D21BD37CB3002F2880 /* libNSUnderscore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 940E99BD1BD37C82002F2880 /* libNSUnderscore.a */; };
+		942C2F2F1C29487500F0265E /* NSDictionary+NSUnderscoreAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 942C2F2E1C29487500F0265E /* NSDictionary+NSUnderscoreAdditions.m */; };
+		942C2F311C2948E000F0265E /* NSUnderscoreDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 942C2F301C2948E000F0265E /* NSUnderscoreDictionaryTests.m */; };
+		942C2F321C29496700F0265E /* NSDictionary+NSUnderscoreAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 942C2F2D1C29487500F0265E /* NSDictionary+NSUnderscoreAdditions.h */; };
+		942C2F371C294EAC00F0265E /* NSSet+NSUnderscoreAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 942C2F361C294EAC00F0265E /* NSSet+NSUnderscoreAdditions.m */; };
+		942C2F391C294ED900F0265E /* NSUnderscoreSetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 942C2F381C294ED900F0265E /* NSUnderscoreSetTests.m */; };
+		942C2F3A1C294F2500F0265E /* NSSet+NSUnderscoreAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 942C2F331C294D8300F0265E /* NSSet+NSUnderscoreAdditions.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +36,8 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				942C2F3A1C294F2500F0265E /* NSSet+NSUnderscoreAdditions.h in CopyFiles */,
+				942C2F321C29496700F0265E /* NSDictionary+NSUnderscoreAdditions.h in CopyFiles */,
 				940E99C11BD37C82002F2880 /* NSArray+NSUnderscoreAdditions.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -41,8 +49,14 @@
 		940E99C01BD37C82002F2880 /* NSArray+NSUnderscoreAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+NSUnderscoreAdditions.h"; sourceTree = "<group>"; };
 		940E99C21BD37C82002F2880 /* NSArray+NSUnderscoreAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NSUnderscoreAdditions.m"; sourceTree = "<group>"; };
 		940E99CD1BD37CB3002F2880 /* NSUnderscoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSUnderscoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		940E99CF1BD37CB3002F2880 /* NSUnderscoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSUnderscoreTests.m; sourceTree = "<group>"; };
+		940E99CF1BD37CB3002F2880 /* NSUnderscoreArrayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSUnderscoreArrayTests.m; sourceTree = "<group>"; };
 		940E99D11BD37CB3002F2880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		942C2F2D1C29487500F0265E /* NSDictionary+NSUnderscoreAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NSUnderscoreAdditions.h"; sourceTree = "<group>"; };
+		942C2F2E1C29487500F0265E /* NSDictionary+NSUnderscoreAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NSUnderscoreAdditions.m"; sourceTree = "<group>"; };
+		942C2F301C2948E000F0265E /* NSUnderscoreDictionaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSUnderscoreDictionaryTests.m; sourceTree = "<group>"; };
+		942C2F331C294D8300F0265E /* NSSet+NSUnderscoreAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+NSUnderscoreAdditions.h"; sourceTree = "<group>"; };
+		942C2F361C294EAC00F0265E /* NSSet+NSUnderscoreAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+NSUnderscoreAdditions.m"; sourceTree = "<group>"; };
+		942C2F381C294ED900F0265E /* NSUnderscoreSetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSUnderscoreSetTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +101,10 @@
 			children = (
 				940E99C01BD37C82002F2880 /* NSArray+NSUnderscoreAdditions.h */,
 				940E99C21BD37C82002F2880 /* NSArray+NSUnderscoreAdditions.m */,
+				942C2F2D1C29487500F0265E /* NSDictionary+NSUnderscoreAdditions.h */,
+				942C2F2E1C29487500F0265E /* NSDictionary+NSUnderscoreAdditions.m */,
+				942C2F331C294D8300F0265E /* NSSet+NSUnderscoreAdditions.h */,
+				942C2F361C294EAC00F0265E /* NSSet+NSUnderscoreAdditions.m */,
 			);
 			path = NSUnderscore;
 			sourceTree = "<group>";
@@ -94,7 +112,9 @@
 		940E99CE1BD37CB3002F2880 /* NSUnderscoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				940E99CF1BD37CB3002F2880 /* NSUnderscoreTests.m */,
+				940E99CF1BD37CB3002F2880 /* NSUnderscoreArrayTests.m */,
+				942C2F301C2948E000F0265E /* NSUnderscoreDictionaryTests.m */,
+				942C2F381C294ED900F0265E /* NSUnderscoreSetTests.m */,
 				940E99D11BD37CB3002F2880 /* Info.plist */,
 			);
 			path = NSUnderscoreTests;
@@ -188,6 +208,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				942C2F371C294EAC00F0265E /* NSSet+NSUnderscoreAdditions.m in Sources */,
+				942C2F2F1C29487500F0265E /* NSDictionary+NSUnderscoreAdditions.m in Sources */,
 				940E99C31BD37C82002F2880 /* NSArray+NSUnderscoreAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,7 +218,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				940E99D01BD37CB3002F2880 /* NSUnderscoreTests.m in Sources */,
+				940E99D01BD37CB3002F2880 /* NSUnderscoreArrayTests.m in Sources */,
+				942C2F391C294ED900F0265E /* NSUnderscoreSetTests.m in Sources */,
+				942C2F311C2948E000F0265E /* NSUnderscoreDictionaryTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +372,7 @@
 				940E99C81BD37C82002F2880 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		940E99D51BD37CB3002F2880 /* Build configuration list for PBXNativeTarget "NSUnderscoreTests" */ = {
 			isa = XCConfigurationList;
@@ -356,6 +381,7 @@
 				940E99D71BD37CB3002F2880 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

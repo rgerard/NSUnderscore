@@ -6,9 +6,9 @@
 //  Copyright © 2015 Ryan Gerard. All rights reserved.
 //
 
-#import "NSArray+NSUnderscoreAdditions.h"
+#import "NSSet+NSUnderscoreAdditions.h"
 
-@implementation NSArray (NSUnderscoreAdditions)
+@implementation NSSet (NSUnderscoreAdditions)
 
 - (void)each:(void(^)(id object))action;
 {
