@@ -87,7 +87,7 @@
 /*
  * Sorts a list into groups and returns a count for the number of objects in each group. 
  * Similar to groupBy, but instead of returning a list of values, returns a count for the number of values in that group.
- * For example:
+ *
  *  NSArray *testObjects = @[@(1), @(2), @(3)];
  *  NSDictionary *countedObjects = [testObjects countBy:^id(NSNumber *val) {
  *      return val.integerValue % 2 == 0 ? @"even": @"odd";
