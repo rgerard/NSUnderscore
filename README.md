@@ -9,37 +9,37 @@ Start by importing the category:
 
 The following functions are available to you:
 
-* each
+* **each**
   * Iterates over a list of elements, yielding each in turn to an action function.
 
-* map
+* **map**
   * Produces a new array of values by mapping each value in list through a transformation function (action).
 
-* reduce
+* **reduce**
   * Reduce boils down a list of values into a single value. Each successive step of it should be returned by action.
 
-* filter
+* **filter**
   * Looks through each value in the list, returning an array of all the values that pass a truth test
 
-* reject
+* **reject**
   * Returns the values in list without the elements that the truth test (predicate) passes. The opposite of filter.
 
-* every
+* **every**
   * Returns true if all of the values in the list pass the predicate truth test.
 
-* some
+* **some**
   * Returns true if any of the values in the list pass the predicate truth test. Short-circuits and stops traversing the list if a true element is found.
 
-* pluck
+* **pluck**
   * A convenient version of what is perhaps the most common use-case for map: extracting a list of property values.
 
-* max
+* **max**
   * Returns the maximum value in list.
 
-* min
+* **min**
   * Returns the minimum value in list.
 
-* groupBy
+* **groupBy**
   * Splits a collection into sets, grouped by the result of running each value through action.
   * Example:
   ```
@@ -51,7 +51,7 @@ The following functions are available to you:
   // Result: @{ @"ryan": [@{@"token": @"ryan-1"}, @{@"token": @"ryan-2"}], @"test": [@{@"token": @"test-1"}] }
   ```
 
-* indexBy
+* **indexBy**
   * Given a list, and an action function that returns a key for each element in the list, returns an object with an index of each item.
   * Just like groupBy, but for when you know your keys are unique.
   * Example:
@@ -63,7 +63,7 @@ The following functions are available to you:
   // Result: @{ @"1": @{@"token": @"1"}, @"2": @{@"token": @"ryan-2"}, @"3": @{@"token": @"3"}] }
   ```
 
-* countBy
+* **countBy**
   * Sorts a list into groups and returns a count for the number of objects in each group. 
   * Similar to groupBy, but instead of returning a list of values, returns a count for the number of values in that group.
   * Example:
@@ -75,7 +75,7 @@ The following functions are available to you:
   // Result: @{ @"even": 1, @"odd": 2 }
   ```
 
-* partition
+* **partition**
   * Split array into two arrays: one whose elements all satisfy action and one whose elements all do not satisfy action.
   * Example:
   ```
