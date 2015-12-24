@@ -11,12 +11,37 @@ The following functions are available to you:
 
 * **each**
   * Iterates over a list of elements, yielding each in turn to an action function.
+  * Example:
+  ```
+  NSArray *objects = @[@(2), @(4)];
+  __block NSInteger total = 0;
+  [objects each:^(NSNumber *object) {
+      total += object.integerValue;
+  }];
+  // Result: total == 6
+  ```  
 
 * **map**
   * Produces a new array of values by mapping each value in list through a transformation function (action).
+  * Example:
+  ```
+  NSArray *objects = @[@(2), @(3)];
+  NSArray *modifiedObjects = [objects map:(id)^(NSNumber *object) {
+      return @(object.integerValue * 2);
+  }];
+  // Result: modifiedObjects == @[ @(4), @(6) ]
+  ```
 
 * **reduce**
   * Reduce boils down a list of values into a single value. Each successive step of it should be returned by action.
+  * Example:
+  ```
+  NSArray *objects = @[@(2), @(4)];
+  NSNumber *reduced = [objects reduce:(id)^(NSNumber *object, NSNumber *previousValue) {
+      return @(object.integerValue + previousValue.integerValue);
+  }];
+  // Result: reduced == @(6)
+  ```  
 
 * **filter**
   * Looks through each value in the list, returning an array of all the values that pass a truth test
