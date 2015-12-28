@@ -41,9 +41,9 @@
     }];
     XCTAssert(multipliedArray.count == 2);
     NSNumber *modifiedValue = multipliedArray[0];
-    XCTAssert(modifiedValue.integerValue == 4);
+    XCTAssert(modifiedValue.integerValue == 4 || modifiedValue.integerValue == 6);
     modifiedValue = multipliedArray[1];
-    XCTAssert(modifiedValue.integerValue == 6);
+    XCTAssert(modifiedValue.integerValue == 4 || modifiedValue.integerValue == 6);
 }
 
 - (void)testReduce {

@@ -17,6 +17,7 @@
 		942C2F371C294EAC00F0265E /* NSSet+NSUnderscoreAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 942C2F361C294EAC00F0265E /* NSSet+NSUnderscoreAdditions.m */; };
 		942C2F391C294ED900F0265E /* NSUnderscoreSetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 942C2F381C294ED900F0265E /* NSUnderscoreSetTests.m */; };
 		942C2F3A1C294F2500F0265E /* NSSet+NSUnderscoreAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 942C2F331C294D8300F0265E /* NSSet+NSUnderscoreAdditions.h */; };
+		94FCFBA11C2CA3F60036556B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 94FCFBA01C2CA3F60036556B /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		942C2F331C294D8300F0265E /* NSSet+NSUnderscoreAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+NSUnderscoreAdditions.h"; sourceTree = "<group>"; };
 		942C2F361C294EAC00F0265E /* NSSet+NSUnderscoreAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+NSUnderscoreAdditions.m"; sourceTree = "<group>"; };
 		942C2F381C294ED900F0265E /* NSUnderscoreSetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSUnderscoreSetTests.m; sourceTree = "<group>"; };
+		94FCFBA01C2CA3F60036556B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		940E99B41BD37C82002F2880 = {
 			isa = PBXGroup;
 			children = (
+				94FCFBA01C2CA3F60036556B /* README.md */,
 				940E99BF1BD37C82002F2880 /* NSUnderscore */,
 				940E99CE1BD37CB3002F2880 /* NSUnderscoreTests */,
 				940E99BE1BD37C82002F2880 /* Products */,
@@ -210,6 +213,7 @@
 			files = (
 				942C2F371C294EAC00F0265E /* NSSet+NSUnderscoreAdditions.m in Sources */,
 				942C2F2F1C29487500F0265E /* NSDictionary+NSUnderscoreAdditions.m in Sources */,
+				94FCFBA11C2CA3F60036556B /* README.md in Sources */,
 				940E99C31BD37C82002F2880 /* NSArray+NSUnderscoreAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

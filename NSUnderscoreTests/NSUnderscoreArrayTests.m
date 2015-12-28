@@ -17,26 +17,26 @@
 @implementation NSUnderscoreArrayTests
 
 - (void)testEachBasic {
-    NSArray *test = @[@(2), @(8)];
+    NSArray *objects = @[@(2), @(8)];
     __block NSInteger total = 0;
-    [test each:^(NSNumber *object) {
+    [objects each:^(NSNumber *object) {
         total += object.integerValue;
     }];
     XCTAssert(total == 10);
 }
 
 - (void)testEachWhenEmpty {
-    NSArray *test = @[];
+    NSArray *objects = @[];
     __block NSInteger total = 0;
-    [test each:^(NSNumber *object) {
+    [objects each:^(NSNumber *object) {
         total += object.integerValue;
     }];
     XCTAssert(total == 0);
 }
 
 - (void)testMap {
-    NSArray *test = @[@(2), @(3)];
-    NSArray *multipliedArray = [test map:(id)^(NSNumber *object) {
+    NSArray *objects = @[@(2), @(3)];
+    NSArray *multipliedArray = [objects map:(id)^(NSNumber *object) {
         return @(object.integerValue * 2);
     }];
     XCTAssert(multipliedArray.count == 2);
@@ -47,16 +47,16 @@
 }
 
 - (void)testReduce {
-    NSArray *test = @[@(2), @(4)];
-    NSNumber *reduced = [test reduce:(id)^(NSNumber *object, NSNumber *previousValue) {
+    NSArray *objects = @[@(2), @(4)];
+    NSNumber *reduced = [objects reduce:(id)^(NSNumber *object, NSNumber *previousValue) {
         return @(object.integerValue + previousValue.integerValue);
     }];
     XCTAssert(reduced.integerValue == 6);
 }
 
 - (void)testFilter {
-    NSArray *test = @[@(2), @(4)];
-    NSArray *modified = [test filter:(id)^(NSNumber *object) {
+    NSArray *objects = @[@(2), @(4)];
+    NSArray *modified = [objects filter:(id)^(NSNumber *object) {
         return object.integerValue == 2;
     }];
     XCTAssert(modified.count == 1);
@@ -65,8 +65,8 @@
 }
 
 - (void)testReject {
-    NSArray *test = @[@(2), @(4)];
-    NSArray *modified = [test reject:(id)^(NSNumber *object) {
+    NSArray *objects = @[@(2), @(4)];
+    NSArray *modified = [objects reject:(id)^(NSNumber *object) {
         return object.integerValue == 2;
     }];
     XCTAssert(modified.count == 1);
@@ -75,40 +75,40 @@
 }
 
 - (void)testEveryValid {
-    NSArray *test = @[@(2), @(4)];
-    BOOL every = [test every:^BOOL(NSNumber *object) {
+    NSArray *objects = @[@(2), @(4)];
+    BOOL every = [objects every:^BOOL(NSNumber *object) {
         return object.integerValue > 0;
     }];
     XCTAssert(every == YES);
 }
 
 - (void)testEveryInvalid {
-    NSArray *test = @[@(2), @(-4)];
-    BOOL every = [test every:^BOOL(NSNumber *object) {
+    NSArray *objects = @[@(2), @(-4)];
+    BOOL every = [objects every:^BOOL(NSNumber *object) {
         return object.integerValue > 0;
     }];
     XCTAssert(every == NO);
 }
 
 - (void)testEveryWhenEmpty {
-    NSArray *test = @[];
-    BOOL every = [test every:^BOOL(NSNumber *object) {
+    NSArray *objects = @[];
+    BOOL every = [objects every:^BOOL(NSNumber *object) {
         return object.integerValue > 0;
     }];
     XCTAssert(every == YES);
 }
 
 - (void)testSomeValid {
-    NSArray *test = @[@(-2), @(4)];
-    BOOL some = [test some:^BOOL(NSNumber *object) {
+    NSArray *objects = @[@(-2), @(4)];
+    BOOL some = [objects some:^BOOL(NSNumber *object) {
         return object.integerValue < 0;
     }];
     XCTAssert(some == YES);
 }
 
 - (void)testSomeInvalid {
-    NSArray *test = @[@(2), @(4)];
-    BOOL some = [test some:^BOOL(NSNumber *object) {
+    NSArray *objects = @[@(2), @(4)];
+    BOOL some = [objects some:^BOOL(NSNumber *object) {
         return object.integerValue < 0;
     }];
     XCTAssert(some == NO);
@@ -116,24 +116,24 @@
 
 
 - (void)testSomeWhenEmpty {
-    NSArray *test = @[];
-    BOOL some = [test some:^BOOL(NSNumber *object) {
+    NSArray *objects = @[];
+    BOOL some = [objects some:^BOOL(NSNumber *object) {
         return object.integerValue < 0;
     }];
     XCTAssert(some == NO);
 }
 
 - (void)testPluck {
-    NSArray *testObjects = @[@{@"id": @(1)}, @{@"id": @(2)}];
-    NSArray *plucked = [testObjects pluck:@"id"];
+    NSArray *objects = @[@{@"id": @(1)}, @{@"id": @(2)}];
+    NSArray *plucked = [objects pluck:@"id"];
     XCTAssert(plucked.count == 2);
     XCTAssert([plucked containsObject:@(1)]);
     XCTAssert([plucked containsObject:@(2)]);
 }
 
 - (void)testMax {
-    NSArray *testObjects = @[@{@"id": @(10)}, @{@"id": @(20)}];
-    NSDictionary *maxValue = [testObjects max:^NSInteger(id val) {
+    NSArray *objects = @[@{@"id": @(10)}, @{@"id": @(20)}];
+    NSDictionary *maxValue = [objects max:^NSInteger(id val) {
         NSDictionary *dict = (NSDictionary *)val;
         NSNumber *dictVal = (NSNumber *)[dict objectForKey:@"id"];
         return dictVal.integerValue;
@@ -143,16 +143,16 @@
 }
 
 - (void)testMaxEmpty {
-    NSArray *testObjects = @[];
-    id maxValue = [testObjects max:^NSInteger(id val) {
+    NSArray *objects = @[];
+    id maxValue = [objects max:^NSInteger(id val) {
         return -1;
     }];
     XCTAssert(maxValue == nil);
 }
 
 - (void)testMin {
-    NSArray *testObjects = @[@{@"id": @(10)}, @{@"id": @(20)}];
-    NSDictionary *minValue = [testObjects min:^NSInteger(id val) {
+    NSArray *objects = @[@{@"id": @(10)}, @{@"id": @(20)}];
+    NSDictionary *minValue = [objects min:^NSInteger(id val) {
         NSDictionary *dict = (NSDictionary *)val;
         NSNumber *dictVal = (NSNumber *)[dict objectForKey:@"id"];
         return dictVal.integerValue;
@@ -162,16 +162,16 @@
 }
 
 - (void)testMinEmpty {
-    NSArray *testObjects = @[];
-    id minValue = [testObjects min:^NSInteger(id val) {
+    NSArray *objects = @[];
+    id minValue = [objects min:^NSInteger(id val) {
         return -1;
     }];
     XCTAssert(minValue == nil);
 }
 
 - (void)testGroupBy {
-    NSArray *testObjects = @[@{@"token": @"ryan-1"}, @{@"token": @"ryan-2"}, @{@"token": @"test-1"}];
-    NSDictionary *groupedObjects = [testObjects groupBy:^id(NSDictionary *val) {
+    NSArray *objects = @[@{@"token": @"ryan-1"}, @{@"token": @"ryan-2"}, @{@"token": @"test-1"}];
+    NSDictionary *groupedObjects = [objects groupBy:^id(NSDictionary *val) {
         NSString *token = [val objectForKey:@"token"];
         return [token substringToIndex:4];
     }];
@@ -183,8 +183,8 @@
 }
 
 - (void)testIndexBy {
-    NSArray *testObjects = @[@{@"token": @"1"}, @{@"token": @"2"}, @{@"token": @"3"}];
-    NSDictionary *indexedObjects = [testObjects indexBy:^id(NSDictionary *val) {
+    NSArray *objects = @[@{@"token": @"1"}, @{@"token": @"2"}, @{@"token": @"3"}];
+    NSDictionary *indexedObjects = [objects indexBy:^id(NSDictionary *val) {
         return [val objectForKey:@"token"];
     }];
     XCTAssertNotNil(indexedObjects);
@@ -197,15 +197,15 @@
 }
 
 - (void)testIndexByWithDuplicateKey {
-    NSArray *testObjects = @[@{@"token": @"1"}, @{@"token": @"2"}, @{@"token": @"1"}];
-    XCTAssertThrows([testObjects indexBy:^id(NSDictionary *val) {
+    NSArray *objects = @[@{@"token": @"1"}, @{@"token": @"2"}, @{@"token": @"1"}];
+    XCTAssertThrows([objects indexBy:^id(NSDictionary *val) {
         return [val objectForKey:@"token"];
     }]);
 }
 
 - (void)testCountBy {
-    NSArray *testObjects = @[@(1), @(2), @(3)];
-    NSDictionary *countedObjects = [testObjects countBy:^id(NSNumber *val) {
+    NSArray *objects = @[@(1), @(2), @(3)];
+    NSDictionary *countedObjects = [objects countBy:^id(NSNumber *val) {
         return val.integerValue % 2 == 0 ? @"even": @"odd";
     }];
     XCTAssertNotNil(countedObjects);
@@ -218,8 +218,8 @@
 }
 
 - (void)testPartitionSuccessAndFail {
-    NSArray *test = @[@(1), @(2), @(3)];
-    NSArray *result = [test partition:^BOOL(NSNumber *object) {
+    NSArray *objects = @[@(1), @(2), @(3)];
+    NSArray *result = [objects partition:^BOOL(NSNumber *object) {
         return object.integerValue % 2 == 0;
     }];
     XCTAssertNotNil(result);
@@ -231,8 +231,8 @@
 }
 
 - (void)testPartitionOnlySuccess {
-    NSArray *test = @[@(2), @(4), @(6)];
-    NSArray *result = [test partition:^BOOL(NSNumber *object) {
+    NSArray *objects = @[@(2), @(4), @(6)];
+    NSArray *result = [objects partition:^BOOL(NSNumber *object) {
         return object.integerValue % 2 == 0;
     }];
     XCTAssertNotNil(result);
@@ -244,8 +244,8 @@
 }
 
 - (void)testPartitionOnlyFail {
-    NSArray *test = @[@(1), @(3), @(5)];
-    NSArray *result = [test partition:^BOOL(NSNumber *object) {
+    NSArray *objects = @[@(1), @(3), @(5)];
+    NSArray *result = [objects partition:^BOOL(NSNumber *object) {
         return object.integerValue % 2 == 0;
     }];
     XCTAssertNotNil(result);
