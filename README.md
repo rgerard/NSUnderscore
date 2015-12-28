@@ -1,11 +1,15 @@
 # Introduction
 NSUnderscore is a set of categories added to NSArray, NSDictionary, and NSSet. This project is an attempt to bring some of the useful functionality found in [Underscore.js](http://underscorejs.org/) to the world of iOS programming. Not every single function has been ported over, as some functions are already implemented on the collection objects.
 
-## NSArray
+## NSArray, NSDictionary and NSSet
 
-Start by importing the category:
+Start by importing the appropriate category:
 
 `#import <NSUnderscore/NSArray+NSUnderscoreAdditions.h>`
+or
+`#import <NSUnderscore/NSDictionary+NSUnderscoreAdditions.h>`
+or
+`#import <NSUnderscore/NSSet+NSUnderscoreAdditions.h>`
 
 The following functions are available to you:
 
@@ -59,7 +63,7 @@ The following functions are available to you:
   * Example:
   ```objc
   NSArray *objects = @[@(2), @(4)];
-  NSArray *filtered = [objects filter:(id)^(NSNumber *object) {
+  NSArray *filtered = [objects reject:(id)^(NSNumber *object) {
     return object.integerValue == 2;
   }];
   // Result: filtered == @[ @(5) ]

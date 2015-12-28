@@ -12,51 +12,112 @@
 
 /* 
  * Iterates over a list of elements, yielding each in turn to an action function.
+ * Example:
+ * NSArray *objects = @[@(2), @(4)];
+ * __block NSInteger total = 0;
+ * [objects each:^(NSNumber *object) {
+ *   total += object.integerValue;
+ * }];
+ * Result: total == 6
  */
 - (void)each:(void(^)(id))action;
 
 /*
  * Produces a new array of values by mapping each value in list through a transformation function (action).
+ * Example:
+ * NSArray *objects = @[@(2), @(3)];
+ * NSArray *modifiedObjects = [objects map:(id)^(NSNumber *object) {
+ *   return @(object.integerValue * 2);
+ * }];
+ * Result: modifiedObjects == @[ @(4), @(6) ]
  */
 - (NSArray *)map:(id(^)(id))action;
 
 /* 
  * Reduce boils down a list of values into a single value. Each successive step of it should be returned by action.
+ * Example:
+ * NSArray *objects = @[@(2), @(4)];
+ * NSNumber *reduced = [objects reduce:(id)^(NSNumber *object, NSNumber *previousValue) {
+ *   return @(object.integerValue + previousValue.integerValue);
+ * }];
+ * Result: reduced == @(6)
  */
 - (id)reduce:(id(^)(id, id))action;
 
 /*
  * Looks through each value in the list, returning an array of all the values that pass a truth test
+ * Example:
+ * NSArray *objects = @[@(2), @(4)];
+ * NSArray *filtered = [objects filter:(id)^(NSNumber *object) {
+ *   return object.integerValue == 2;
+ * }];
+ * Result: filtered == @[ @(2) ]
  */
 - (NSArray *)filter:(bool(^)(id))action;
 
 /*
  * Returns the values in list without the elements that the truth test (predicate) passes. The opposite of filter.
+ * Example: 
+ * NSArray *objects = @[@(2), @(4)];
+ * NSArray *filtered = [objects reject:(id)^(NSNumber *object) {
+ *   return object.integerValue == 2;
+ * }];
+ * Result: filtered == @[ @(5) ]
  */
 - (NSArray *)reject:(bool(^)(id))action;
 
 /*
  * Returns true if all of the values in the list pass the predicate truth test.
+ * Example:
+ * NSArray *objects = @[@(2), @(4)];
+ * BOOL result = [objects every:^BOOL(NSNumber *object) {
+ *   return object.integerValue > 0;
+ * }];
+ * Result: result == YES
  */
 - (BOOL)every:(BOOL(^)(id))action;
 
 /*
  * Returns true if any of the values in the list pass the predicate truth test. Short-circuits and stops traversing the list if a true element is found.
+ * Example:
+ * NSArray *objects = @[@(-2), @(4)];
+ * BOOL result = [objects some:^BOOL(NSNumber *object) {
+ *   return object.integerValue < 0;
+ * }];
+ * Result: result == YES
  */
 - (BOOL)some:(BOOL(^)(id))action;
 
 /*
  * A convenient version of what is perhaps the most common use-case for map: extracting a list of property values.
+ * Example:
+ * NSArray *objects = @[@{@"id": @(1)}, @{@"id": @(2)}];
+ * NSArray *plucked = [objects pluck:@"id"];
+ * Result: plucked == [ @(1), @(2) ]
  */
 - (NSArray *)pluck:(NSString *)propertyName;
 
 /*
  * Returns the maximum value in list.
+ * Example:
+ * NSArray *objects = @[@{@"id": @(10)}, @{@"id": @(20)}];
+ * NSDictionary *maxValue = [objects max:^NSInteger(NSDictionary *dict) {
+ *   NSNumber *dictVal = (NSNumber *)[dict objectForKey:@"id"];
+ *   return dictVal.integerValue;
+ * }];
+ * Result: maxValue == @{@"id": @(20)}
  */
 - (id)max:(NSInteger(^)(id))action;
 
 /*
  * Returns the minimum value in list.
+ * Example:
+ * NSArray *objects = @[@{@"id": @(10)}, @{@"id": @(20)}];
+ * NSDictionary *minValue = [objects max:^NSInteger(NSDictionary *dict) {
+ *   NSNumber *dictVal = (NSNumber *)[dict objectForKey:@"id"];
+ *   return dictVal.integerValue;
+ * }];
+ * Result: minValue == @{@"id": @(10)}
  */
 - (id)min:(NSInteger(^)(id))action;
 

@@ -62,48 +62,23 @@
 
 /*
  * Splits a collection into sets, grouped by the result of running each value through action.
- * For example:
- *  NSArray *testObjects = @[@{@"token": @"ryan-1"}, @{@"token": @"ryan-2"}, @{@"token": @"test-1"}];
- *  NSDictionary *groupedObjects = [testObjects groupBy:^id(NSDictionary *val) {
- *      NSString *token = [val objectForKey:@"token"];
- *      return [token substringToIndex:4];
- *  }];
- * --> Should produce the result: @{ @"ryan": [@{@"token": @"ryan-1"}, @{@"token": @"ryan-2"}], @"test": [@{@"token": @"test-1"}] }
  */
 - (NSDictionary *)groupBy:(id(^)(id))action;
 
 /*
  * Given a list, and an action function that returns a key for each element in the list, returns an object with an index of each item.
  * Just like groupBy, but for when you know your keys are unique.
- * For example:
- *  NSArray *testObjects = @[@{@"token": @"1"}, @{@"token": @"2"}, @{@"token": @"3"}];
- *  NSDictionary *indexedObjects = [testObjects indexBy:^id(NSDictionary *val) {
- *      return [val objectForKey:@"token"];
- *  }];
- * --> Should produce the result: @{ @"1": @{@"token": @"1"}, @"2": @{@"token": @"ryan-2"}, @"3": @{@"token": @"3"}] }
  */
 - (NSDictionary *)indexBy:(id(^)(id))action;
 
 /*
  * Sorts a list into groups and returns a count for the number of objects in each group.
  * Similar to groupBy, but instead of returning a list of values, returns a count for the number of values in that group.
- * For example:
- *  NSArray *testObjects = @[@(1), @(2), @(3)];
- *  NSDictionary *countedObjects = [testObjects countBy:^id(NSNumber *val) {
- *      return val.integerValue % 2 == 0 ? @"even": @"odd";
- *  }];
- * --> Should produce the result: @{ @"even": 1, @"odd": 2 }
  */
 - (NSDictionary *)countBy:(id(^)(id))action;
 
 /*
  * Split array into two arrays: one whose elements all satisfy action and one whose elements all do not satisfy action.
- * For example:
- *  NSArray *testObjects = @[@(1), @(2), @(3)];
- *  NSDictionary *indexedObjects = [testObjects partition:^BOOL(NSNumber *val) {
- *      return val.integerValue % 2 == 0;
- *  }];
- * --> Should produce the result: @[ @[ @(2) ], @[ @(1), @(3) ] ]
  */
 - (NSArray *)partition:(BOOL(^)(id))action;
 

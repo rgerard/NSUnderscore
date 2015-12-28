@@ -196,13 +196,6 @@
     XCTAssert(groupThree.count == 1);
 }
 
-- (void)testIndexByWithDuplicateKey {
-    NSSet *testObjects = [NSSet setWithObjects:@{@"token": @"1"}, @{@"token": @"2"}, @{@"token": @"1"}, nil];
-    XCTAssertThrows([testObjects indexBy:^id(NSDictionary *val) {
-        return [val objectForKey:@"token"];
-    }]);
-}
-
 - (void)testCountBy {
     NSSet *testObjects = [NSSet setWithObjects:@(1), @(2), @(3), nil];
     NSDictionary *countedObjects = [testObjects countBy:^id(NSNumber *val) {

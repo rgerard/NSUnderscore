@@ -133,8 +133,7 @@
 
 - (void)testMax {
     NSArray *objects = @[@{@"id": @(10)}, @{@"id": @(20)}];
-    NSDictionary *maxValue = [objects max:^NSInteger(id val) {
-        NSDictionary *dict = (NSDictionary *)val;
+    NSDictionary *maxValue = [objects max:^NSInteger(NSDictionary *dict) {
         NSNumber *dictVal = (NSNumber *)[dict objectForKey:@"id"];
         return dictVal.integerValue;
     }];
