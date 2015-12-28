@@ -5,10 +5,10 @@ NSUnderscore is a set of categories added to NSArray, NSDictionary, and NSSet. T
 
 Start by importing the appropriate category:
 
-`#import <NSUnderscore/NSArray+NSUnderscoreAdditions.h>`
-or
-`#import <NSUnderscore/NSDictionary+NSUnderscoreAdditions.h>`
-or
+`#import <NSUnderscore/NSArray+NSUnderscoreAdditions.h>` or
+
+`#import <NSUnderscore/NSDictionary+NSUnderscoreAdditions.h>` or
+
 `#import <NSUnderscore/NSSet+NSUnderscoreAdditions.h>`
 
 The following functions are available to you:
