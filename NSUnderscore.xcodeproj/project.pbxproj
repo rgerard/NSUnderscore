@@ -58,6 +58,8 @@
 		942C2F331C294D8300F0265E /* NSSet+NSUnderscoreAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+NSUnderscoreAdditions.h"; sourceTree = "<group>"; };
 		942C2F361C294EAC00F0265E /* NSSet+NSUnderscoreAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+NSUnderscoreAdditions.m"; sourceTree = "<group>"; };
 		942C2F381C294ED900F0265E /* NSUnderscoreSetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSUnderscoreSetTests.m; sourceTree = "<group>"; };
+		949400301C3CF82200721558 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		949400311C3CF82900721558 /* NSUnderscore.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NSUnderscore.podspec; sourceTree = "<group>"; };
 		94FCFBA01C2CA3F60036556B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +85,8 @@
 		940E99B41BD37C82002F2880 = {
 			isa = PBXGroup;
 			children = (
+				949400311C3CF82900721558 /* NSUnderscore.podspec */,
+				949400301C3CF82200721558 /* LICENSE */,
 				94FCFBA01C2CA3F60036556B /* README.md */,
 				940E99BF1BD37C82002F2880 /* NSUnderscore */,
 				940E99CE1BD37CB3002F2880 /* NSUnderscoreTests */,
