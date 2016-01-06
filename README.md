@@ -42,7 +42,7 @@ NSArray *modifiedObjects = [objects map:(id)^(NSNumber *object) {
 ```objc
 NSArray *objects = @[@(2), @(4)];
 NSNumber *reduced = [objects reduce:(id)^(NSNumber *object, NSNumber *previousValue) {
-return @(object.integerValue + previousValue.integerValue);
+  return @(object.integerValue + previousValue.integerValue);
 }];
 // Result: reduced == @(6)
 ```  
