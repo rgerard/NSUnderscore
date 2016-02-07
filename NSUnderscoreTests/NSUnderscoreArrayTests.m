@@ -46,6 +46,15 @@
     XCTAssert(modifiedValue.integerValue == 6);
 }
 
+- (void)testMapWithInvalidBlock {
+    NSArray *objects = @[@(2), @(3)];
+    NSArray *multipliedArray = [objects map:(id)^(NSNumber *object) {
+        return nil;
+    }];
+    XCTAssertNotNil(multipliedArray);
+    XCTAssert(multipliedArray.count == 0);
+}
+
 - (void)testReduce {
     NSArray *objects = @[@(2), @(4)];
     NSNumber *reduced = [objects reduce:(id)^(NSNumber *object, NSNumber *previousValue) {
@@ -131,6 +140,13 @@
     XCTAssert([plucked containsObject:@(2)]);
 }
 
+- (void)testPluckWithInvalidProperty {
+    NSArray *objects = @[@{@"id": @(1)}, @{@"id": @(2)}];
+    NSArray *plucked = [objects pluck:@"name"];
+    XCTAssertNotNil(plucked);
+    XCTAssert(plucked.count == 0);
+}
+
 - (void)testMax {
     NSArray *objects = @[@{@"id": @(10)}, @{@"id": @(20)}];
     NSDictionary *maxValue = [objects max:^NSInteger(NSDictionary *dict) {
@@ -181,6 +197,15 @@
     XCTAssert(groupTwo.count == 1);
 }
 
+- (void)testGroupByWithInvalidKey {
+    NSArray *objects = @[@{@"token": @"ryan-1"}, @{@"token": @"ryan-2"}, @{@"token": @"test-1"}];
+    NSDictionary *groupedObjects = [objects groupBy:^id(NSDictionary *val) {
+        return nil;
+    }];
+    XCTAssertNotNil(groupedObjects);
+    XCTAssert(groupedObjects.allKeys.count == 0);
+}
+
 - (void)testIndexBy {
     NSArray *objects = @[@{@"token": @"1"}, @{@"token": @"2"}, @{@"token": @"3"}];
     NSDictionary *indexedObjects = [objects indexBy:^id(NSDictionary *val) {
@@ -193,6 +218,15 @@
     XCTAssert(groupTwo.count == 1);
     NSArray *groupThree = [indexedObjects objectForKey:@"3"];
     XCTAssert(groupThree.count == 1);
+}
+
+- (void)testIndexByWithInvalidKey {
+    NSArray *objects = @[@{@"token": @"1"}, @{@"token": @"2"}, @{@"token": @"3"}];
+    NSDictionary *indexedObjects = [objects indexBy:^id(NSDictionary *val) {
+        return nil;
+    }];
+    XCTAssertNotNil(indexedObjects);
+    XCTAssert(indexedObjects.allKeys.count == 0);
 }
 
 - (void)testIndexByWithDuplicateKey {
@@ -214,6 +248,15 @@
     NSNumber *countTwo = [countedObjects objectForKey:@"odd"];
     XCTAssertNotNil(countTwo);
     XCTAssert(countTwo.integerValue == 2);
+}
+
+- (void)testCountByWithInvalidKey {
+    NSArray *objects = @[@(1), @(2), @(3)];
+    NSDictionary *countedObjects = [objects countBy:^id(NSNumber *val) {
+        return nil;
+    }];
+    XCTAssertNotNil(countedObjects);
+    XCTAssert(countedObjects.allKeys.count == 0);
 }
 
 - (void)testPartitionSuccessAndFail {

@@ -22,7 +22,9 @@
     __block NSMutableArray *mutatedArray = [NSMutableArray arrayWithCapacity:self.count];
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         id result = action(obj);
-        [mutatedArray addObject:result];
+        if (result) {
+            [mutatedArray addObject:result];
+        }
     }];
     
     return mutatedArray;
@@ -95,7 +97,9 @@
     __block NSMutableArray *mutatedArray = [NSMutableArray arrayWithCapacity:self.count];
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id element, BOOL *stop) {
         id result = [element valueForKey:propertyName];
-        [mutatedArray addObject:result];
+        if (result) {
+            [mutatedArray addObject:result];
+        }
     }];
     
     return mutatedArray;
@@ -136,6 +140,9 @@
     __block NSMutableDictionary *groupedObjects = [NSMutableDictionary dictionary];
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id element, BOOL *stop) {
         id resultKey = action(element);
+        if (!resultKey) {
+            return;
+        }
         
         NSMutableArray *existingGroup = [groupedObjects objectForKey:resultKey];
         if (!existingGroup) {
@@ -153,6 +160,10 @@
     __block NSMutableDictionary *indexedObjects = [NSMutableDictionary dictionary];
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id element, BOOL *stop) {
         id resultKey = action(element);
+        if (!resultKey) {
+            return;
+        }
+        
         if ([indexedObjects objectForKey:resultKey] != nil) {
             [NSException raise:@"Duplicate Key" format:@"The key %@ is a duplicate", resultKey];
         }
@@ -167,6 +178,9 @@
     __block NSMutableDictionary *countedObjects = [NSMutableDictionary dictionary];
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id element, BOOL *stop) {
         id resultKey = action(element);
+        if (!resultKey) {
+            return;
+        }
         
         NSNumber *existingCount = [countedObjects objectForKey:resultKey];
         if (!existingCount) {

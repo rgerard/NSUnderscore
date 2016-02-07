@@ -22,7 +22,9 @@
     NSMutableArray *mutatedArray = [NSMutableArray arrayWithCapacity:self.count];
     for(id element in self) {
         id result = action(element);
-        [mutatedArray addObject:result];
+        if (result) {
+            [mutatedArray addObject:result];
+        }
     }
     
     return mutatedArray;
@@ -93,7 +95,9 @@
     NSMutableArray *mutatedArray = [NSMutableArray arrayWithCapacity:self.count];
     for(id element in self) {
         id result = [element valueForKey:propertyName];
-        [mutatedArray addObject:result];
+        if (result) {
+            [mutatedArray addObject:result];
+        }
     }
     
     return mutatedArray;
@@ -134,6 +138,9 @@
     NSMutableDictionary *groupedObjects = [NSMutableDictionary dictionary];
     for(id element in self) {
         id resultKey = action(element);
+        if (!resultKey) {
+            continue;
+        }
         
         NSMutableArray *existingGroup = [groupedObjects objectForKey:resultKey];
         if (!existingGroup) {
@@ -151,6 +158,10 @@
     NSMutableDictionary *indexedObjects = [NSMutableDictionary dictionary];
     for(id element in self) {
         id resultKey = action(element);
+        if (!resultKey) {
+            continue;
+        }
+        
         if ([indexedObjects objectForKey:resultKey] != nil) {
             [NSException raise:@"Duplicate Key" format:@"The key %@ is a duplicate", resultKey];
         }
@@ -165,6 +176,9 @@
     NSMutableDictionary *countedObjects = [NSMutableDictionary dictionary];
     for(id element in self) {
         id resultKey = action(element);
+        if (!resultKey) {
+            continue;
+        }
         
         NSNumber *existingCount = [countedObjects objectForKey:resultKey];
         if (!existingCount) {
